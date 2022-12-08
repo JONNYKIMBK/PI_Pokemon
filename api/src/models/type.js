@@ -12,7 +12,7 @@ module.exports = (sequelize) => {
     name_type: {
       type: DataTypes.STRING,
       unique: true,
-
+      allowNull: false,
       validate: {
         isAlphanumeric: true,
       },
