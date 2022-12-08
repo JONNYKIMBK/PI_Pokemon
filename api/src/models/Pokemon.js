@@ -7,10 +7,16 @@ module.exports = (sequelize) => {
     id_pokemon: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      primaryKey: true,
+      unique: true,
+      autoIncrement: true,
+
+      validate: {},
     },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true,
     },
     hp: {
       type: DataTypes.INTEGER,
@@ -25,6 +31,9 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
     },
     weight: {
+      type: DataTypes.INTEGER,
+    },
+    type: {
       type: DataTypes.INTEGER,
     },
   });
