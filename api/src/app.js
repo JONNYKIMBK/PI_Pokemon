@@ -10,7 +10,10 @@ require("./db.js");
 const server = express();
 
 //array de promesas pokemons
-const promisePokemons = require("./routes/get/pokemons");
+const promisePokemons = require("./controllers/pokemons");
+
+//funcion get types
+const { types } = require("./controllers/types");
 
 server.name = "API";
 
@@ -73,6 +76,11 @@ server.get("/pokemons", async (req, res) => {
     });
 
   if (pokemons.length > 0) res.status(200).json(pokemons);
+});
+
+server.get("/types", async (req, res) => {
+  const arrayTypes = await types();
+  res.status(200).json(arrayTypes);
 });
 
 module.exports = server;
