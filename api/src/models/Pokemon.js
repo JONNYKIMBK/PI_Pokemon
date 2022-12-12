@@ -38,31 +38,21 @@ module.exports = (sequelize) => {
       defense: {
         type: DataTypes.INTEGER,
       },
+      speed: {
+        type: DataTypes.INTEGER,
+      },
+
       height: {
         type: DataTypes.INTEGER,
-
-        //la altura esta en decimetros y se muestra en centimetros
-        get() {
-          const heightDm = this.getDataValue("height");
-
-          heightDm = heightDm * 10;
-
-          return heightDm ? `${heightDm} cm` : heightDm;
-        },
       },
       weight: {
         type: DataTypes.INTEGER,
-        //el peso se pasa como hectogramos por la API y se devuelve en kilogramos
-        get() {
-          const weightHg = this.getDataValue("weight");
-
-          weightHg = weightHg / 10;
-
-          return weightHg ? `${weightHg} Kg` : weightHg;
-        },
       },
-      type: {
-        type: DataTypes.INTEGER,
+      type1: {
+        type: DataTypes.STRING,
+      },
+      type2: {
+        type: DataTypes.STRING,
       },
     },
     {}
