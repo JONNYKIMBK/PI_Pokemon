@@ -23,10 +23,14 @@ const types = async () => {
     });
   }
 
-  console.log("hola");
   return promiseTypes[0];
 };
 
+const getTypes = async (req, res) => {
+  const arrayTypes = await types();
+  res.status(200).json(arrayTypes);
+};
+
 module.exports = {
-  types,
+  getTypes,
 };
