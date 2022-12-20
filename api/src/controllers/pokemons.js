@@ -55,7 +55,42 @@ const getPokemons = async (req, res) => {
   } catch (error) {
     console.log("no se encontraron los pokemons de la base de datos");
   }
+  ////////////////////////////////////////////////
 
+  //devuelve el query name
+
+  try {
+    const { name } = req.query;
+
+    if (name) {
+      const queryPokemon = pokemons.find((pokemon) => {
+        return pokemon.name.toLowerCase() === name.toLowerCase();
+      });
+
+      if (queryPokemon === undefined) throw new Error();
+      return res.status(200).json(queryPokemon);
+    }
+  } catch {
+    res.status(400).send("No existe pokemon con ese nombre");
+  }
+
+  /////////////////////////////////////////
+
+  try {
+    const { id } = req.params;
+
+    if (id) {
+      const pokemonByID = pokemons.find((pokemon) => {
+        return pokemon.id == id;
+      });
+
+      return res.status(200).json(pokemonByID);
+    }
+  } catch {
+    console.log("No se ingreso ID");
+  }
+
+  //devuelve todos los pokemons
   if (pokemons.length > 0) res.status(200).json(pokemons);
 };
 

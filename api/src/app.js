@@ -3,7 +3,6 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const routes = require("./routes/index.js");
-const axios = require("axios");
 
 require("./db.js");
 
@@ -51,10 +50,18 @@ server.get("/pokemons", getPokemons);
 
 /////////////////
 
+//get pokemons by id
+
+server.get("/pokemons/:id", getPokemons);
+
+/////////////////////////////
+
 //get all types
 server.get("/types", getTypes);
 
 ///////////////////////
+
+//post new pokemons
 
 server.post("/pokemons", postPokemons);
 
