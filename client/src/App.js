@@ -1,9 +1,15 @@
-import './App.css';
+import React from "react";
+import { Route } from "react-router-dom";
+import Homepage from "./components/homepage/Landingpage";
+
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Pokemon</h1>
+      <Route exact path="/">
+        <Homepage />
+      </Route>
     </div>
   );
 }

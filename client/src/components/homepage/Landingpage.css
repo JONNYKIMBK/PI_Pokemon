@@ -1,0 +1,24 @@
+body {
+  background: url("../../img/background.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -ms-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.home {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.start {
+  background-color: rgba(255, 0, 0, 0.6);
+  width: 20%;
+  border-radius: 20%;
+}
+
+.start img {
+  width: 50%;
+}
