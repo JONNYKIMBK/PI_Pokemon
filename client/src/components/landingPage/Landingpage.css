@@ -7,7 +7,7 @@ body {
   background-size: cover;
 }
 
-.home {
+.landing {
   display: flex;
   justify-content: space-around;
   align-items: center;
