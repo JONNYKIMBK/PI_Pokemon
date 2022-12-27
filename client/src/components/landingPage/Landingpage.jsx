@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Landingpage.css";
 
 import { Link } from "react-router-dom";
 
-export default function Homepage() {
+export default function Landingpage() {
+  const [start, setStart] = useState(false);
+
+  const buttonChange = () => {
+    setStart(!start);
+  };
+
   return (
     <div className="home">
       <div>
@@ -13,8 +19,12 @@ export default function Homepage() {
         />
       </div>
 
-      <div className="start">
-        <Link>
+      <div
+        className={start ? "start2" : "start"}
+        onMouseOver={buttonChange}
+        onMouseOut={buttonChange}
+      >
+        <Link to="/home">
           <img
             src="https://cdn-icons-png.flaticon.com/512/5261/5261929.png"
             alt="start-botton"
