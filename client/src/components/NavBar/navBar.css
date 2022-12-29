@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  height: 100px;
+  background-color: yellow;
+}
+
+img {
+  object-fit: cover;
+  height: 100%;
+}

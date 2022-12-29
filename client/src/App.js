@@ -1,8 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
+
+//components
 import Landingpage from "./components/landingPage/Landingpage";
 import Home from "./components/home/Home";
+import NavBar from "./components/NavBar/navBar";
 
+//styles
 import "./App.css";
 
 function App() {
@@ -13,7 +17,7 @@ function App() {
       </Route>
 
       <Route path="/home">
-        <Home />
+        <NavBar />
       </Route>
     </div>
   );

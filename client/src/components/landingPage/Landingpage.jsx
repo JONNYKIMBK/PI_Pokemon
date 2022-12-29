@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Landingpage.css";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Landingpage() {
   const [start, setStart] = useState(false);
@@ -24,12 +24,12 @@ export default function Landingpage() {
         onMouseOver={buttonChange}
         onMouseOut={buttonChange}
       >
-        <Link to="/home">
+        <NavLink to="/home">
           <img
             src="https://cdn-icons-png.flaticon.com/512/5261/5261929.png"
             alt="start-botton"
           />
-        </Link>
+        </NavLink>
       </div>
     </div>
   );
