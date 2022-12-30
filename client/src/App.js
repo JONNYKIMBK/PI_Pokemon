@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 //components
 import Landingpage from "./components/landingPage/Landingpage";
@@ -18,6 +19,10 @@ function App() {
 
       <Route path="/home">
         <NavBar />
+      </Route>
+
+      <Route exact path="/home">
+        <Home />
       </Route>
     </div>
   );

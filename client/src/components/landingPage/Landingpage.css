@@ -11,6 +11,7 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  height: 600px;
 }
 
 .start {
@@ -30,5 +31,9 @@ body {
 }
 
 .start img {
+  width: 50%;
+}
+
+.logo {
   width: 50%;
 }
