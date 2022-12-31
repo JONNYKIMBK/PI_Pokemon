@@ -1,6 +1,6 @@
 //actions
 
-import { GET_ALL_POKEMONS } from "../actions/actions";
+import { FIRST_LOAD, GET_ALL_POKEMONS } from "../actions/actions";
 
 //////////
 
@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
     case GET_ALL_POKEMONS:
       return {
         ...state,
-        allPokemons: [action.payload],
+        allPokemons: action.payload,
       };
 
     default:

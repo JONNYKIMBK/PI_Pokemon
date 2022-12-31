@@ -7,13 +7,18 @@ import { getAllPokemons } from "../../actions/actions";
 
 export default function Landingpage() {
   const [start, setStart] = useState(false);
+  const [get, setGet] = useState(true);
 
-  const state = useSelector((state) => state);
+  const pokemons = useSelector((state) => state.allPokemons);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllPokemons);
-  });
+    if (get) {
+      dispatch(getAllPokemons());
+      setGet(false);
+      console.log(pokemons);
+    }
+  }, [pokemons]);
 
   const buttonChange = () => {
     setStart(!start);

@@ -16,6 +16,8 @@ for (let i = 1; i <= 40; i++) {
 }
 
 const getPokemons = async (req, res) => {
+  pokemons = [];
+
   //pokemons de api
 
   await Promise.all(promisePokemons.map((promise) => axios.get(promise)))
