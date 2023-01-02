@@ -1,6 +1,6 @@
 //actions
 
-import { FIRST_LOAD, GET_ALL_POKEMONS } from "../actions/actions";
+import { GET_ALL_POKEMONS } from "../actions/actions";
 
 //////////
 

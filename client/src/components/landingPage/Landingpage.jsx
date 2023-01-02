@@ -16,7 +16,6 @@ export default function Landingpage() {
     if (get) {
       dispatch(getAllPokemons());
       setGet(false);
-      console.log(pokemons);
     }
   }, [pokemons]);
 
