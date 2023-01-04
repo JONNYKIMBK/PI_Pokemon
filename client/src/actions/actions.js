@@ -6,11 +6,13 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   GET_ALL_TYPES = "GET_ALL_TYPES",
   GET_BY_ID = "GET_BY_ID",
   CLEAR = "CLEAR_ID",
-  SEARCH_POKEMON = "SEARCH_POKEMON";
+  SEARCH_POKEMON = "SEARCH_POKEMON",
+  FILTER = "FILTER",
+  TYPE_FILTER = "TYPE_FILTER";
 
 /////////
 
-export function getAllPokemons(name) {
+export function getAllPokemons() {
   return async function (dispatch) {
     const response = await axios.get("http://localhost:3001/pokemons");
 
@@ -53,5 +55,21 @@ export function getById(id) {
 export function clear() {
   return function (dispatch) {
     return dispatch({ type: CLEAR });
+  };
+}
+
+export function filter(order, type) {
+  return function (dispatch) {
+    return dispatch({ type: FILTER, payload: { order: order, type: type } });
+  };
+}
+
+export function typeFilter(pokemons, type) {
+  return function (dispatch) {
+    const arrayPokemons = pokemons.filter((pokemon) => {
+      if (pokemon.type1 === type || pokemon.type2 === type) return true;
+    });
+
+    return dispatch({ type: TYPE_FILTER, payload: arrayPokemons });
   };
 }

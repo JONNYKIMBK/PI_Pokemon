@@ -9,13 +9,13 @@ export default function PokemonBasic({ index }) {
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const idPokemon = pokemons.allPokemons[index].id;
+  const idPokemon = pokemons.pokemons[index].id;
 
   if (pokemons.searchPokemon === "no se encontro el pokemon") {
     return <div>no se encontro</div>;
   }
 
-  if (pokemons.allPokemons.length > 0) {
+  if (pokemons.pokemons.length > 0) {
     return (
       <div className="pokemonbasic">
         <NavLink to={`/home/${idPokemon}`}>
@@ -23,18 +23,18 @@ export default function PokemonBasic({ index }) {
             className="nameButton"
             type="button"
             value={
-              pokemons.allPokemons[index].name.charAt(0).toUpperCase() +
-              pokemons.allPokemons[index].name.slice(1)
+              pokemons.pokemons[index].name.charAt(0).toUpperCase() +
+              pokemons.pokemons[index].name.slice(1)
             }
           />
         </NavLink>
-        <img src={pokemons.allPokemons[index].img} alt="" />
+        <img src={pokemons.pokemons[index].img} alt="" />
 
         <p>
           Type:{" "}
-          {pokemons.allPokemons[index].type2
-            ? `${pokemons.allPokemons[index].type1} - ${pokemons.allPokemons[index].type2} `
-            : pokemons.allPokemons[index].type1}
+          {pokemons.pokemons[index].type2
+            ? `${pokemons.pokemons[index].type1} - ${pokemons.pokemons[index].type2} `
+            : pokemons.pokemons[index].type1}
         </p>
       </div>
     );

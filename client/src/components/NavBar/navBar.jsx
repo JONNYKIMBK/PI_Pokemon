@@ -1,4 +1,5 @@
 import React from "react";
+
 import SearchBar from "../searchBar/searchBar";
 
 import { NavLink } from "react-router-dom";
@@ -19,8 +20,6 @@ export default function NavBar() {
           <SearchBar />
         </div>
       </div>
-
-      <div>aca va una barra de herramientas</div>
     </div>
   );
 }

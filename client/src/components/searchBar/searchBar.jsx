@@ -24,22 +24,26 @@ export default function SearchBar() {
     setName("");
   };
 
-  return (
-    <div>
-      <form
-        onSubmit={(e) => {
-          handleSubmit(e);
-        }}
-      >
-        <input
-          type="text"
-          placeholder="name"
-          value={name}
-          onChange={(e) => handleChange(e)}
-        />
+  if (Object.entries(pokemon.selectPokemon).length === 0) {
+    return (
+      <div>
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <input
+            type="text"
+            placeholder="name"
+            value={name}
+            onChange={(e) => handleChange(e)}
+          />
 
-        <input type="submit" value="Buscar" />
-      </form>
-    </div>
-  );
+          <input type="submit" value="Buscar" />
+        </form>
+      </div>
+    );
+  }
+
+  return <div></div>;
 }
