@@ -8,6 +8,10 @@
 }
 
 img {
-  object-fit: cover;
+  object-fit: contain;
   height: 100%;
+}
+
+.header img {
+  width: 50%;
 }

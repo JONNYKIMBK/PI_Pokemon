@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Landingpage from "./components/landingPage/Landingpage";
 import Home from "./components/home/Home";
 import NavBar from "./components/NavBar/navBar";
+import PokemonDetails from "./components/pokemonDetails/pokemonDetails";
 
 //styles
 import "./App.css";
@@ -23,6 +24,10 @@ function App() {
 
       <Route exact path="/home">
         <Home />
+      </Route>
+
+      <Route exact path="/home/:idPokemon">
+        <PokemonDetails />
       </Route>
     </div>
   );

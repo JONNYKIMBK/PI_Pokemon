@@ -1,6 +1,11 @@
 //actions
 
-import { GET_ALL_POKEMONS, GET_ALL_TYPES } from "../actions/actions";
+import {
+  CLEAR_ID,
+  GET_ALL_POKEMONS,
+  GET_ALL_TYPES,
+  GET_BY_ID,
+} from "../actions/actions";
 
 //////////
 
@@ -9,6 +14,8 @@ const initialState = {
   pokemons: [],
 
   types: [],
+
+  selectPokemon: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +31,18 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         types: action.payload,
+      };
+
+    case GET_BY_ID:
+      return {
+        ...state,
+        selectPokemon: action.payload,
+      };
+
+    case CLEAR_ID:
+      return {
+        ...state,
+        selectPokemon: {},
       };
 
     default:
