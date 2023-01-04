@@ -11,6 +11,10 @@ export default function PokemonBasic({ index }) {
 
   const idPokemon = pokemons.allPokemons[index].id;
 
+  if (pokemons.searchPokemon === "no se encontro el pokemon") {
+    return <div>no se encontro</div>;
+  }
+
   if (pokemons.allPokemons.length > 0) {
     return (
       <div className="pokemonbasic">

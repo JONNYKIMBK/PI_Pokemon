@@ -1,19 +1,20 @@
 //actions
 
 import {
-  CLEAR_ID,
+  CLEAR,
   GET_ALL_POKEMONS,
   GET_ALL_TYPES,
   GET_BY_ID,
+  SEARCH_POKEMON,
 } from "../actions/actions";
 
 //////////
 
 const initialState = {
   allPokemons: [],
-  pokemons: [],
-
   types: [],
+
+  searchPokemon: {},
 
   selectPokemon: {},
 };
@@ -24,7 +25,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         allPokemons: action.payload,
-        pokemons: action.payload,
+      };
+
+    case SEARCH_POKEMON:
+      return {
+        ...state,
+        searchPokemon: action.payload,
+        allPokemons: [action.payload],
       };
 
     case GET_ALL_TYPES:
@@ -39,10 +46,11 @@ const reducer = (state = initialState, action) => {
         selectPokemon: action.payload,
       };
 
-    case CLEAR_ID:
+    case CLEAR:
       return {
         ...state,
         selectPokemon: {},
+        searchPokemon: "",
       };
 
     default:

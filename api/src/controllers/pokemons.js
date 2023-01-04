@@ -73,7 +73,7 @@ const getPokemons = async (req, res) => {
       return res.status(200).json(queryPokemon);
     }
   } catch {
-    res.status(400).send("No existe pokemon con ese nombre");
+    return res.status(400).send("No existe pokemon con ese nombre");
   }
 
   /////////////////////////////////////////
