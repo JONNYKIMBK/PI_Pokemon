@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filter, getAllPokemons, typeFilter } from "../../actions/actions";
+import { getAllPokemons, sortAZ, filterOrder } from "../../actions/actions";
 
 import "./filter.css";
 
 export default function Filter() {
   const [order, setOrder] = useState("");
   const [type, setType] = useState("");
+  const [origin, setOrigin] = useState("");
 
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -19,20 +20,28 @@ export default function Filter() {
     setType(event.target.value);
   };
 
+  const originChange = (event) => {
+    setOrigin(event.target.value);
+  };
+
   useEffect(() => {
-    if (type !== "") {
-      dispatch(typeFilter(pokemons.allPokemons, type));
-    } else {
-      dispatch(getAllPokemons());
-    }
-  }, [order, type]);
+    dispatch(filterOrder(pokemons.allPokemons, type, order, origin));
+  }, [order, type, origin]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setOrder("");
+    setType("");
+    setOrigin("");
+
+    dispatch(getAllPokemons());
+  };
 
   return (
-    <div className="filter">
-      <div className="order">
+    <div className="filterBar">
+      <div className="filterElement">
         <form>
-          <label for="ord">Order </label>
-          <select name="Orden" onChange={(e) => orderChange(e)}>
+          <select name="Orden" value={order} onChange={(e) => orderChange(e)}>
             <option value="">Default order</option>
             <option value="A-Z">A to Z</option>
             <option value="Z-A">Z to A</option>
@@ -40,14 +49,12 @@ export default function Filter() {
             <option value="Minor">Minor attack</option>
           </select>
         </form>
-        {order}
       </div>
 
-      <div className="type">
+      <div className="filterElement">
         <form>
-          <label>Type </label>
           <select name="Type" value={type} onChange={(e) => typeChange(e)}>
-            <option value="">-</option>
+            <option value="">All types</option>
             {pokemons.types.map((type, index) => {
               return (
                 <option value={type} key={index}>
@@ -57,7 +64,31 @@ export default function Filter() {
             })}
           </select>
         </form>
-        {type}
+      </div>
+
+      <div className="filterElement">
+        <form>
+          <select
+            value={origin}
+            onChange={(e) => {
+              originChange(e);
+            }}
+          >
+            <option value="">All pokemons</option>
+            <option value="API">API</option>
+            <option value="CREATED">Created</option>
+          </select>
+        </form>
+      </div>
+
+      <div className="filterElement">
+        <form
+          onSubmit={(e) => {
+            handleSubmit(e);
+          }}
+        >
+          <input type="submit" value="Refresh" />
+        </form>
       </div>
     </div>
   );

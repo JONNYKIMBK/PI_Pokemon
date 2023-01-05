@@ -5,9 +5,8 @@ import {
   GET_ALL_POKEMONS,
   GET_ALL_TYPES,
   GET_BY_ID,
-  FILTER,
   SEARCH_POKEMON,
-  TYPE_FILTER,
+  FILTER_ORDER,
 } from "../actions/actions";
 
 //////////
@@ -19,11 +18,6 @@ const initialState = {
 
   searchPokemon: {},
   selectPokemon: {},
-
-  filter: {
-    order: [],
-    type: [],
-  },
 };
 
 const reducer = (state = initialState, action) => {
@@ -39,7 +33,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchPokemon: action.payload,
-        allPokemons: [action.payload],
         pokemons: [action.payload],
       };
 
@@ -60,19 +53,9 @@ const reducer = (state = initialState, action) => {
         ...state,
         selectPokemon: {},
         searchPokemon: {},
-        filter: {
-          order: [],
-          type: [],
-        },
       };
 
-    case FILTER:
-      return {
-        ...state,
-        filter: action.payload,
-      };
-
-    case TYPE_FILTER:
+    case FILTER_ORDER:
       return {
         ...state,
         pokemons: action.payload,

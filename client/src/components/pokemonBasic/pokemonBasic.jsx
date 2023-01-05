@@ -6,10 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import "./pokemonBasic.css";
 
 export default function PokemonBasic({ index }) {
+  const [background, setBackground] = useState(false);
+
   const pokemons = useSelector((state) => state);
-  const dispatch = useDispatch();
 
   const idPokemon = pokemons.pokemons[index].id;
+
+  const backgroundChange = () => {
+    setBackground(!background);
+  };
 
   if (pokemons.searchPokemon === "no se encontro el pokemon") {
     return <div>no se encontro</div>;
@@ -17,7 +22,11 @@ export default function PokemonBasic({ index }) {
 
   if (pokemons.pokemons.length > 0) {
     return (
-      <div className="pokemonbasic">
+      <div
+        className={background ? "pokemonbasic2" : "pokemonbasic"}
+        onMouseOver={backgroundChange}
+        onMouseOut={backgroundChange}
+      >
         <NavLink to={`/home/${idPokemon}`}>
           <input
             className="nameButton"

@@ -7,8 +7,7 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   GET_BY_ID = "GET_BY_ID",
   CLEAR = "CLEAR_ID",
   SEARCH_POKEMON = "SEARCH_POKEMON",
-  FILTER = "FILTER",
-  TYPE_FILTER = "TYPE_FILTER";
+  FILTER_ORDER = "FILTER_ORDER";
 
 /////////
 
@@ -58,18 +57,63 @@ export function clear() {
   };
 }
 
-export function filter(order, type) {
+export function filterOrder(pokemons, type, order, origin) {
   return function (dispatch) {
-    return dispatch({ type: FILTER, payload: { order: order, type: type } });
-  };
-}
+    let arrayPokemons = [...pokemons];
 
-export function typeFilter(pokemons, type) {
-  return function (dispatch) {
-    const arrayPokemons = pokemons.filter((pokemon) => {
-      if (pokemon.type1 === type || pokemon.type2 === type) return true;
-    });
+    //origin
 
-    return dispatch({ type: TYPE_FILTER, payload: arrayPokemons });
+    if (origin === "API") {
+      arrayPokemons = arrayPokemons.filter((pokemon) => {
+        if (typeof pokemon.id === "number") return true;
+      });
+    }
+
+    if (origin === "CREATED") {
+      arrayPokemons = arrayPokemons.filter((pokemon) => {
+        if (typeof pokemon.id !== "number") return true;
+      });
+    }
+
+    //////////////////////////////////////
+
+    //type
+    if (type !== "") {
+      arrayPokemons = arrayPokemons.filter((pokemon) => {
+        if (pokemon.type1 === type || pokemon.type2 === type) return true;
+      });
+    }
+    ////////////////////////
+
+    //order
+    if (order === "A-Z") {
+      arrayPokemons.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    }
+
+    if (order === "Z-A") {
+      arrayPokemons
+        .sort((a, b) => {
+          return a.name.localeCompare(b.name);
+        })
+        .reverse();
+    }
+
+    if (order === "Mayor") {
+      arrayPokemons.sort((a, b) => {
+        return b.attack - a.attack;
+      });
+    }
+
+    if (order === "Minor") {
+      arrayPokemons.sort((a, b) => {
+        return a.attack - b.attack;
+      });
+    }
+
+    ///////////////////////////////////
+
+    return dispatch({ type: FILTER_ORDER, payload: arrayPokemons });
   };
 }

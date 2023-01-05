@@ -1,0 +1,22 @@
+.filterBar {
+  display: flex;
+  background-color: rgba(0, 0, 255, 0.4);
+  justify-content: space-around;
+  align-items: center;
+  padding: 1%;
+  margin-bottom: 1%;
+}
+
+.filterElement {
+  display: flex;
+}
+
+select {
+  background-color: yellow;
+  color: blue;
+}
+
+.filter input {
+  background-color: yellow;
+  color: blue;
+}

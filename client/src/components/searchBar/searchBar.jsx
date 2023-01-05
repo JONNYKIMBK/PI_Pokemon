@@ -39,7 +39,7 @@ export default function SearchBar() {
             onChange={(e) => handleChange(e)}
           />
 
-          <input type="submit" value="Buscar" />
+          <input type="submit" value="Search" />
         </form>
       </div>
     );

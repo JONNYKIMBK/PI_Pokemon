@@ -12,7 +12,26 @@
   border-radius: 25%;
 }
 
+.pokemonbasic2 {
+  background-color: rgba(0, 0, 255, 0.4);
+
+  width: 24%;
+  margin-bottom: 1%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: rgba(255, 255, 0);
+  font-weight: bold;
+  border-radius: 25%;
+}
+
 .pokemonbasic img {
+  width: 80%;
+  object-fit: contain;
+}
+
+.pokemonbasic2 img {
   width: 80%;
   object-fit: contain;
 }
