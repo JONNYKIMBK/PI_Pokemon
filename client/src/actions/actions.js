@@ -7,7 +7,9 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   GET_BY_ID = "GET_BY_ID",
   CLEAR = "CLEAR_ID",
   SEARCH_POKEMON = "SEARCH_POKEMON",
-  FILTER_ORDER = "FILTER_ORDER";
+  FILTER_ORDER = "FILTER_ORDER",
+  PAGINATION = "PAGINATION",
+  PAGES = "PAGES";
 
 /////////
 
@@ -115,5 +117,21 @@ export function filterOrder(pokemons, type, order, origin) {
     ///////////////////////////////////
 
     return dispatch({ type: FILTER_ORDER, payload: arrayPokemons });
+  };
+}
+
+export function pagination(pokemons, page) {
+  return function (dispatch) {
+    let start = 0;
+
+    if (page > 1) {
+      start = 12 * (page - 1);
+    }
+
+    let end = 12 * page;
+
+    const arrayPage = pokemons.slice(start, end);
+
+    return dispatch({ type: PAGINATION, payload: arrayPage });
   };
 }

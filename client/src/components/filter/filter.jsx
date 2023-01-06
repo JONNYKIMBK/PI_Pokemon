@@ -28,7 +28,7 @@ export default function Filter() {
     dispatch(filterOrder(pokemons.allPokemons, type, order, origin));
   }, [order, type, origin]);
 
-  const handleSubmit = (event) => {
+  const refresh = (event) => {
     event.preventDefault();
     setOrder("");
     setType("");
@@ -84,7 +84,7 @@ export default function Filter() {
       <div className="filterElement">
         <form
           onSubmit={(e) => {
-            handleSubmit(e);
+            refresh(e);
           }}
         >
           <input type="submit" value="Refresh" />

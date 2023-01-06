@@ -4,15 +4,16 @@ import PokemonBasic from "../pokemonBasic/pokemonBasic";
 import Filter from "../filter/filter";
 
 import { useDispatch, useSelector } from "react-redux";
-import { clear, getAllPokemons, getTypes } from "../../actions/actions";
+import { clear, getAllPokemons, getTypes, pages } from "../../actions/actions";
 
 import "./Home.css";
+import Pagination from "../pagination/pagination";
 
 export default function Home() {
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
 
-  const arrayPokemons = pokemons.pokemons;
+  const arrayPokemons = pokemons.showPokemons;
   useEffect(() => {
     if (pokemons.allPokemons.length < 1) {
       dispatch(getAllPokemons());
@@ -20,6 +21,7 @@ export default function Home() {
     }
 
     if (pokemons.selectPokemon.id) {
+      dispatch(getAllPokemons());
       dispatch(clear());
     }
     if (pokemons.searchPokemon.id) {
@@ -29,8 +31,12 @@ export default function Home() {
 
   return (
     <div className="home">
-      <div className="filter">
+      <div>
         <Filter />
+      </div>
+
+      <div>
+        <Pagination />
       </div>
 
       <div className="pokemons">

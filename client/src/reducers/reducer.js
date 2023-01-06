@@ -7,6 +7,7 @@ import {
   GET_BY_ID,
   SEARCH_POKEMON,
   FILTER_ORDER,
+  PAGINATION,
 } from "../actions/actions";
 
 //////////
@@ -14,6 +15,8 @@ import {
 const initialState = {
   allPokemons: [],
   pokemons: [],
+  showPokemons: [],
+
   types: [],
 
   searchPokemon: {},
@@ -27,13 +30,14 @@ const reducer = (state = initialState, action) => {
         ...state,
         allPokemons: action.payload,
         pokemons: action.payload,
+        showPokemons: action.payload.slice(0, 12),
       };
 
     case SEARCH_POKEMON:
       return {
         ...state,
         searchPokemon: action.payload,
-        pokemons: [action.payload],
+        showPokemons: [action.payload],
       };
 
     case GET_ALL_TYPES:
@@ -59,6 +63,13 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         pokemons: action.payload,
+        showPokemons: action.payload.slice(0, 12),
+      };
+
+    case PAGINATION:
+      return {
+        ...state,
+        showPokemons: action.payload,
       };
 
     default:

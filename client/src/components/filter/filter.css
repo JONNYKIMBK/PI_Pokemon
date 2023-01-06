@@ -16,7 +16,7 @@ select {
   color: blue;
 }
 
-.filter input {
+.filterElement input {
   background-color: yellow;
   color: blue;
 }

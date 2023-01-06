@@ -20,7 +20,7 @@ export default function PokemonBasic({ index }) {
     return <div>no se encontro</div>;
   }
 
-  if (pokemons.pokemons.length > 0) {
+  if (pokemons.showPokemons.length > 0) {
     return (
       <div
         className={background ? "pokemonbasic2" : "pokemonbasic"}
@@ -32,18 +32,18 @@ export default function PokemonBasic({ index }) {
             className="nameButton"
             type="button"
             value={
-              pokemons.pokemons[index].name.charAt(0).toUpperCase() +
-              pokemons.pokemons[index].name.slice(1)
+              pokemons.showPokemons[index].name.charAt(0).toUpperCase() +
+              pokemons.showPokemons[index].name.slice(1)
             }
           />
         </NavLink>
-        <img src={pokemons.pokemons[index].img} alt="" />
+        <img src={pokemons.showPokemons[index].img} alt="" />
 
         <p>
           Type:{" "}
-          {pokemons.pokemons[index].type2
-            ? `${pokemons.pokemons[index].type1} - ${pokemons.pokemons[index].type2} `
-            : pokemons.pokemons[index].type1}
+          {pokemons.showPokemons[index].type2
+            ? `${pokemons.showPokemons[index].type1} - ${pokemons.showPokemons[index].type2} `
+            : pokemons.showPokemons[index].type1}
         </p>
       </div>
     );

@@ -1,0 +1,22 @@
+.pagination {
+  display: flex;
+  background-color: yellow;
+  justify-content: center;
+  margin-bottom: 1%;
+}
+
+.pagination input {
+  background-color: rgba(0, 0, 255, 0.6);
+}
+
+.buttons {
+  display: flex;
+}
+.buttons input {
+  display: flex;
+  margin: 2%;
+}
+
+.selectPage input {
+  background-color: aqua;
+}
