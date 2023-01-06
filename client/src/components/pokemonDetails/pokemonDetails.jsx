@@ -8,7 +8,7 @@ import "./pokemonDetails.css";
 
 export default function PokemonDetails() {
   let { idPokemon } = useParams();
-  const pokemon = useSelector((state) => state.selectPokemon);
+  const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const imgType = {
@@ -48,52 +48,59 @@ export default function PokemonDetails() {
   };
 
   useEffect(() => {
-    if (Object.entries(pokemon).length === 0) {
+    if (Object.entries(pokemons.selectPokemon).length === 0) {
       dispatch(getById(idPokemon));
     }
-  }, [pokemon]);
+    if (pokemons.pokemons.length < 40 || pokemons.pokemons.length > 80) {
+      dispatch(getAllPokemons());
+    }
+  }, [pokemons.selectPokemon]);
 
-  if (pokemon.id) {
+  if (pokemons.selectPokemon.id) {
     return (
       <div className="pokemonDetails">
         <div className="container">
           <div className="top">
-            <div>#{pokemon.id}</div>
+            <div>#{pokemons.selectPokemon.id}</div>
             <div>
-              {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
+              {pokemons.selectPokemon.name.charAt(0).toUpperCase() +
+                pokemons.selectPokemon.name.slice(1)}
             </div>
           </div>
 
           <div className="mid">
             <div className="imagePokemon">
-              <img src={pokemon.img} alt={pokemon.id} />
+              <img
+                src={pokemons.selectPokemon.img}
+                alt={pokemons.selectPokemon.id}
+              />
             </div>
 
             <div className="stats">
               <ul>
                 <li>
                   <b>Hp: </b>
-                  {pokemon.hp}
+                  {pokemons.selectPokemon.hp}
                 </li>
                 <li>
                   <b>Attack: </b>
-                  {pokemon.attack}
+                  {pokemons.selectPokemon.attack}
                 </li>
                 <li>
                   <b>Defense: </b>
-                  {pokemon.defense}
+                  {pokemons.selectPokemon.defense}
                 </li>
                 <li>
                   <b>Speed: </b>
-                  {pokemon.speed}
+                  {pokemons.selectPokemon.speed}
                 </li>
                 <li>
                   <b>Height: </b>
-                  {pokemon.height}
+                  {pokemons.selectPokemon.height}
                 </li>
                 <li>
                   <b>Weight: </b>
-                  {pokemon.weight}
+                  {pokemons.selectPokemon.weight}
                 </li>
               </ul>
             </div>
@@ -101,18 +108,24 @@ export default function PokemonDetails() {
 
           <div className="bot">
             <div className="type1">
-              <img src={imgType[pokemon.type1]} alt={pokemon.type1} />
+              <img
+                src={imgType[pokemons.selectPokemon.type1]}
+                alt={pokemons.selectPokemon.type1}
+              />
               {" " +
-                pokemon.type1.charAt(0).toUpperCase() +
-                pokemon.type1.slice(1)}
+                pokemons.selectPokemon.type1.charAt(0).toUpperCase() +
+                pokemons.selectPokemon.type1.slice(1)}
             </div>
             <div className="type2">
-              <img src={imgType[pokemon.type2]} alt={pokemon.type2} />
+              <img
+                src={imgType[pokemons.selectPokemon.type2]}
+                alt={pokemons.selectPokemon.type2}
+              />
 
-              {pokemon.type2
+              {pokemons.selectPokemon.type2
                 ? " " +
-                  pokemon.type2.charAt(0).toUpperCase() +
-                  pokemon.type2.slice(1)
+                  pokemons.selectPokemon.type2.charAt(0).toUpperCase() +
+                  pokemons.selectPokemon.type2.slice(1)
                 : null}
             </div>
           </div>

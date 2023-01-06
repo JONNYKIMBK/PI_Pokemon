@@ -37,6 +37,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         searchPokemon: action.payload,
+        pokemons: [action.payload],
         showPokemons: [action.payload],
       };
 

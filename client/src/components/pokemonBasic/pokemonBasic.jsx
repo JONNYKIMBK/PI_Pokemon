@@ -10,7 +10,7 @@ export default function PokemonBasic({ index }) {
 
   const pokemons = useSelector((state) => state);
 
-  const idPokemon = pokemons.pokemons[index].id;
+  const idPokemon = pokemons.showPokemons[index].id;
 
   const backgroundChange = () => {
     setBackground(!background);

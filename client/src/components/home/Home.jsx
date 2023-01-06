@@ -21,7 +21,6 @@ export default function Home() {
     }
 
     if (pokemons.selectPokemon.id) {
-      dispatch(getAllPokemons());
       dispatch(clear());
     }
     if (pokemons.searchPokemon.id) {
@@ -43,6 +42,10 @@ export default function Home() {
         {arrayPokemons.map((pokemon, index) => (
           <PokemonBasic index={index} key={index} />
         ))}
+      </div>
+
+      <div>
+        <Pagination />
       </div>
     </div>
   );
