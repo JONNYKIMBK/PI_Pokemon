@@ -24,11 +24,18 @@ export default function NewPokemon() {
     nameEmpty: "errorBlock",
     nameOnlyLetters: "errorBlock",
     urlInvalid: "errorBlock",
+    hp: "errorBlock",
+    attack: "errorBlock",
+    defense: "errorBlock",
+    speed: "errorBlock",
+    height: "errorBlock",
+    weight: "errorBlock",
   });
   const [urlImage, setUrlImage] = useState({
     noimage: "imageTrue",
     image: "imageBlock",
   });
+  const [fail, setFail] = useState(false);
 
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
@@ -106,6 +113,20 @@ export default function NewPokemon() {
     let prop = event.target.name;
     let value = event.target.value;
 
+    if (value > 1000000) {
+      setError({
+        ...error,
+        [prop]: "error",
+      });
+      setFail(true);
+    } else {
+      setError({
+        ...error,
+        [prop]: "errorBlock",
+      });
+      setFail(false);
+    }
+
     setNewPokemon({
       ...newPokemon,
       [prop]: value,
@@ -126,7 +147,7 @@ export default function NewPokemon() {
         ...error,
         nameEmpty: "error",
       });
-    } else {
+    } else if (!fail) {
       if (!patternUrl.test(newPokemon.img)) {
         axios
           .post("http://localhost:3001/pokemons", {
@@ -236,6 +257,12 @@ export default function NewPokemon() {
                 />
               </div>
 
+              {/* error max */}
+              <div className={error.hp}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
+
               <div className="values">
                 <label>Attack </label>
                 <input
@@ -247,6 +274,11 @@ export default function NewPokemon() {
                   }}
                 />
               </div>
+              {/* error max */}
+              <div className={error.attack}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
 
               <div className="values">
                 <label>Defense </label>
@@ -259,6 +291,11 @@ export default function NewPokemon() {
                   }}
                 />
               </div>
+              {/* error max */}
+              <div className={error.defense}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
 
               <div className="values">
                 <label>Speed </label>
@@ -272,6 +309,12 @@ export default function NewPokemon() {
                 />
               </div>
 
+              {/* error max */}
+              <div className={error.speed}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
+
               <div className="values">
                 <label>Height </label>
                 <input
@@ -284,6 +327,12 @@ export default function NewPokemon() {
                 />
               </div>
 
+              {/* error max */}
+              <div className={error.height}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
+
               <div className="values">
                 <label>Weight </label>
                 <input
@@ -295,6 +344,12 @@ export default function NewPokemon() {
                   }}
                 />
               </div>
+
+              {/* error max */}
+              <div className={error.weight}>
+                the number cannot be greater than 1000000
+              </div>
+              {/* ///////////////// */}
 
               <div className="values">
                 <label>Image (url) </label>

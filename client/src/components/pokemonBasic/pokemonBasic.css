@@ -30,6 +30,18 @@
   width: 80%;
   object-fit: contain;
 }
+.pokemonbasic a {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
+.pokemonbasic2 a {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+}
 
 .pokemonbasic2 img {
   width: 80%;

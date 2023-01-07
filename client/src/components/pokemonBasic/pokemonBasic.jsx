@@ -36,9 +36,8 @@ export default function PokemonBasic({ index }) {
               pokemons.showPokemons[index].name.slice(1)
             }
           />
+          <img src={pokemons.showPokemons[index].img} alt="" />
         </NavLink>
-        <img src={pokemons.showPokemons[index].img} alt="" />
-
         <p>
           Type:{" "}
           {pokemons.showPokemons[index].type2

@@ -64,9 +64,12 @@ export default function PokemonDetails() {
         <div className="container">
           <div className="top">
             <div>#{pokemons.selectPokemon.id}</div>
-            <div>
-              {pokemons.selectPokemon.name.charAt(0).toUpperCase() +
-                pokemons.selectPokemon.name.slice(1)}
+            <div className="detailName">
+              {}
+              {"| " +
+                pokemons.selectPokemon.name.charAt(0).toUpperCase() +
+                pokemons.selectPokemon.name.slice(1) +
+                " |"}
             </div>
           </div>
 
@@ -118,7 +121,9 @@ export default function PokemonDetails() {
                 pokemons.selectPokemon.type1.charAt(0).toUpperCase() +
                 pokemons.selectPokemon.type1.slice(1)}
             </div>
-            <div className="type2">
+            <div
+              className={pokemons.selectPokemon.type2 ? "type2" : "typeNull"}
+            >
               <img
                 src={imgType[pokemons.selectPokemon.type2]}
                 alt={pokemons.selectPokemon.type2}
