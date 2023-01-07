@@ -1,0 +1,62 @@
+/* .formNewPokemon {
+  background-color: rgba(255, 255, 0, 0.4);
+  padding-top: 1%;
+  margin-top: 2%;
+} */
+
+.values {
+  font-weight: bold;
+  margin: 1%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.values select {
+  height: 30px;
+}
+
+.values input {
+  background-color: yellow;
+  margin-bottom: 1%;
+}
+
+label {
+  width: 150px;
+}
+
+.error {
+  color: rgba(255, 0, 0, 0.6);
+}
+
+.errorBlock {
+  display: none;
+}
+
+.newContainer {
+  display: flex;
+  background-color: rgba(255, 255, 0, 0.4);
+  padding-top: 1%;
+  margin-top: 2%;
+  justify-content: space-around;
+  padding-bottom: 1%;
+}
+
+.newImage {
+  font-weight: bold;
+  object-fit: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.imageTrue {
+  width: 50%;
+  height: 80%;
+}
+
+.imageBlock {
+  display: none;
+}

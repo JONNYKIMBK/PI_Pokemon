@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPokemons, sortAZ, filterOrder } from "../../actions/actions";
+import { getAllPokemons, filterOrder } from "../../actions/actions";
 
 import "./filter.css";
 

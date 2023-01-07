@@ -1,6 +1,5 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 
 //components
 import Landingpage from "./components/landingPage/Landingpage";
@@ -10,6 +9,7 @@ import PokemonDetails from "./components/pokemonDetails/pokemonDetails";
 
 //styles
 import "./App.css";
+import NewPokemon from "./components/newPokemon/newPokemon";
 
 function App() {
   return (
@@ -28,6 +28,10 @@ function App() {
 
       <Route exact path="/home/:idPokemon">
         <PokemonDetails />
+      </Route>
+
+      <Route path="/newpokemon">
+        <NewPokemon />
       </Route>
     </div>
   );

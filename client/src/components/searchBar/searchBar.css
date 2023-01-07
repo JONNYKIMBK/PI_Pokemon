@@ -1,0 +1,10 @@
+.searchBar input {
+  border-radius: 5px;
+  background-color: rgba(0, 0, 255, 0.6);
+  font-weight: bold;
+  color: yellow;
+}
+
+::placeholder {
+  color: rgba(255, 255, 0, 0.7);
+}

@@ -29,7 +29,7 @@ export default function Pagination() {
   return (
     <div className="pagination">
       <div className="buttons">
-        {"<<"}
+        {"<< "}
         {arrayPages.map((pages) => {
           return (
             <input
@@ -41,7 +41,7 @@ export default function Pagination() {
             />
           );
         })}
-        {">>"}
+        {" >>"}
       </div>
     </div>
   );

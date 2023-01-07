@@ -16,6 +16,13 @@ export default function NavBar() {
             alt="pokedex"
           />
         </NavLink>
+
+        <div className="newPokemon">
+          <NavLink to="/newpokemon">
+            <span>New Pokemon</span>
+          </NavLink>
+        </div>
+
         <div>
           <SearchBar />
         </div>

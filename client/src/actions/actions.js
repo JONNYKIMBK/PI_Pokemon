@@ -9,7 +9,8 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   SEARCH_POKEMON = "SEARCH_POKEMON",
   FILTER_ORDER = "FILTER_ORDER",
   PAGINATION = "PAGINATION",
-  PAGES = "PAGES";
+  PAGES = "PAGES",
+  NEW_POKEMON = "NEW_POKEMON";
 
 /////////
 
@@ -133,5 +134,11 @@ export function pagination(pokemons, page) {
     const arrayPage = pokemons.slice(start, end);
 
     return dispatch({ type: PAGINATION, payload: arrayPage });
+  };
+}
+
+export function postNewPokemon(pokemon) {
+  return function (dispatch) {
+    return dispatch({ type: NEW_POKEMON, payload: pokemon });
   };
 }

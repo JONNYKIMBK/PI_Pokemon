@@ -8,6 +8,7 @@ import {
   SEARCH_POKEMON,
   FILTER_ORDER,
   PAGINATION,
+  NEW_POKEMON,
 } from "../actions/actions";
 
 //////////
@@ -21,6 +22,7 @@ const initialState = {
 
   searchPokemon: {},
   selectPokemon: {},
+  newPokemon: {},
 };
 
 const reducer = (state = initialState, action) => {
@@ -71,6 +73,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         showPokemons: action.payload,
+      };
+
+    case NEW_POKEMON:
+      return {
+        ...state,
+        newPokemon: action.payload,
       };
 
     default:

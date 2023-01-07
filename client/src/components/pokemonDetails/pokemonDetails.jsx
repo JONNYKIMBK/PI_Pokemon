@@ -36,7 +36,7 @@ export default function PokemonDetails() {
     electric:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Pok%C3%A9mon_Electric_Type_Icon.svg/2048px-Pok%C3%A9mon_Electric_Type_Icon.svg.png",
     psychic:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fes.m.wikipedia.org%2Fwiki%2FArchivo%3APok%25C3%25A9mon_Psychic_Type_Icon.svg&psig=AOvVaw2cRWhq-cdWRpHv_sTL8m--&ust=1672878299791000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCLjzhrfTrPwCFQAAAAAdAAAAABAE",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Pok%C3%A9mon_Psychic_Type_Icon.svg/768px-Pok%C3%A9mon_Psychic_Type_Icon.svg.png",
     ice: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Pok%C3%A9mon_Ice_Type_Icon.svg/1200px-Pok%C3%A9mon_Ice_Type_Icon.svg.png",
     dragon:
       "https://pm1.narvii.com/6262/0dc57a5edcfe9737890ab871d81eb2a1bc68d6e9_hq.jpg",
@@ -44,13 +44,15 @@ export default function PokemonDetails() {
     fairy:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Pok%C3%A9mon_Fairy_Type_Icon.svg/1024px-Pok%C3%A9mon_Fairy_Type_Icon.svg.png",
     unknown: "",
-    shadow: "",
+    shadow:
+      "https://images.saymedia-content.com/.image/t_share/MTc0NDU3ODYxNzg1Nzg5ODAw/best-attacks-in-pokemon-go.png",
   };
 
   useEffect(() => {
     if (Object.entries(pokemons.selectPokemon).length === 0) {
       dispatch(getById(idPokemon));
     }
+
     if (pokemons.pokemons.length < 40 || pokemons.pokemons.length > 80) {
       dispatch(getAllPokemons());
     }

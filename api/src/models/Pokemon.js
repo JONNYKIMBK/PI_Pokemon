@@ -20,13 +20,12 @@ module.exports = (sequelize) => {
         validate: {
           isAlphanumeric: true,
         },
-        //pone la primera letra del nombre en mayuscula
+        //pone todo en minusculas
         get() {
           const rawName = this.getDataValue("name");
 
-          const rawNameUpper =
-            rawName.charAt(0).toUpperCase() + rawName.slice(1);
-          return rawName ? rawNameUpper : null;
+          const rawNameLower = rawName.toLowerCase();
+          return rawName ? rawNameLower : null;
         },
       },
       hp: {

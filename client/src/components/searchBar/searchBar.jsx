@@ -26,7 +26,7 @@ export default function SearchBar() {
 
   if (Object.entries(pokemon.selectPokemon).length === 0) {
     return (
-      <div>
+      <div className="searchBar">
         <form
           onSubmit={(e) => {
             handleSubmit(e);

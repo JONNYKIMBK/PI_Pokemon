@@ -10,21 +10,26 @@ import "./Home.css";
 import Pagination from "../pagination/pagination";
 
 export default function Home() {
+  const [get, setGet] = useState(false);
+
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const arrayPokemons = pokemons.showPokemons;
   useEffect(() => {
-    if (pokemons.allPokemons.length < 1) {
-      dispatch(getAllPokemons());
-      dispatch(getTypes());
-    }
+    if (get === false) {
+      setGet(true);
+      if (pokemons.allPokemons.length < 1) {
+        dispatch(getAllPokemons());
+        dispatch(getTypes());
+      }
 
-    if (pokemons.selectPokemon.id) {
-      dispatch(clear());
-    }
-    if (pokemons.searchPokemon.id) {
-      dispatch(clear());
+      if (pokemons.selectPokemon.id) {
+        dispatch(clear());
+      }
+      if (pokemons.searchPokemon.id) {
+        dispatch(clear());
+      }
     }
   }, [pokemons]);
 
