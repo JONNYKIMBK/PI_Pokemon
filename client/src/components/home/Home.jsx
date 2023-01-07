@@ -26,6 +26,7 @@ export default function Home() {
 
       if (pokemons.selectPokemon.id) {
         dispatch(clear());
+        dispatch(getAllPokemons());
       }
       if (pokemons.searchPokemon.id) {
         dispatch(clear());

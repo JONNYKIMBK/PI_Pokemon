@@ -28,6 +28,11 @@ module.exports = (sequelize) => {
           return rawName ? rawNameLower : null;
         },
       },
+      img: {
+        type: DataTypes.STRING,
+        defaultValue:
+          "https://www.pngitem.com/pimgs/m/30-302283_pikachu-pokmon-go-silhouette-drawing-whos-that-pokemon.png",
+      },
       hp: {
         type: DataTypes.INTEGER,
       },
