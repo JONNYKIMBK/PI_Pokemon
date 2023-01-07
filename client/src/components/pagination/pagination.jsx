@@ -35,6 +35,7 @@ export default function Pagination() {
             <input
               type="submit"
               value={pages}
+              key={pages}
               onClick={(e) => {
                 handleSubmit(e);
               }}

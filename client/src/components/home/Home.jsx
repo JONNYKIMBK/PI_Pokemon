@@ -4,7 +4,7 @@ import PokemonBasic from "../pokemonBasic/pokemonBasic";
 import Filter from "../filter/filter";
 
 import { useDispatch, useSelector } from "react-redux";
-import { clear, getAllPokemons, getTypes, pages } from "../../actions/actions";
+import { clear, getAllPokemons, getTypes } from "../../actions/actions";
 
 import "./Home.css";
 import Pagination from "../pagination/pagination";
