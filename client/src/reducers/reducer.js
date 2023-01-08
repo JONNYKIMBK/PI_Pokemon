@@ -9,6 +9,7 @@ import {
   FILTER_ORDER,
   PAGINATION,
   NEW_POKEMON,
+  CHANGE_PAGE,
 } from "../actions/actions";
 
 //////////
@@ -23,6 +24,8 @@ const initialState = {
   searchPokemon: {},
   selectPokemon: {},
   newPokemon: {},
+
+  page: "",
 };
 
 const reducer = (state = initialState, action) => {
@@ -79,6 +82,12 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         newPokemon: action.payload,
+      };
+
+    case CHANGE_PAGE:
+      return {
+        ...state,
+        page: action.payload,
       };
 
     default:

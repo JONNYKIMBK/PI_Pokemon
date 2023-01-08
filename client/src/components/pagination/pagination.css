@@ -17,6 +17,9 @@
   margin: 2%;
 }
 
-.selectPage input {
-  background-color: aqua;
+.selectPage {
+  color: yellow;
+  font-weight: bold;
+  border: solid black;
+  font-size: large;
 }

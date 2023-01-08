@@ -49,10 +49,6 @@ export default function Home() {
           <PokemonBasic index={index} key={index} />
         ))}
       </div>
-
-      <div>
-        <Pagination />
-      </div>
     </div>
   );
 }

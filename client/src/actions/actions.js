@@ -10,7 +10,8 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   FILTER_ORDER = "FILTER_ORDER",
   PAGINATION = "PAGINATION",
   PAGES = "PAGES",
-  NEW_POKEMON = "NEW_POKEMON";
+  NEW_POKEMON = "NEW_POKEMON",
+  CHANGE_PAGE = "CHANGE_PAGE";
 
 /////////
 
@@ -140,5 +141,10 @@ export function pagination(pokemons, page) {
 export function postNewPokemon(pokemon) {
   return function (dispatch) {
     return dispatch({ type: NEW_POKEMON, payload: pokemon });
+  };
+}
+export function changePage(page) {
+  return function (dispatch) {
+    return dispatch({ type: CHANGE_PAGE, payload: page });
   };
 }

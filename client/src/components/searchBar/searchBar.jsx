@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { searchPokemon } from "../../actions/actions";
+import { searchPokemon, changePage } from "../../actions/actions";
 
 import "./searchBar.css";
 
@@ -19,6 +19,7 @@ export default function SearchBar() {
     event.preventDefault();
     if (name !== "") {
       dispatch(searchPokemon(name));
+      dispatch(changePage(1));
     }
 
     setName("");
