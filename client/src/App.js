@@ -6,10 +6,10 @@ import Landingpage from "./components/landingPage/Landingpage";
 import Home from "./components/home/Home";
 import NavBar from "./components/NavBar/navBar";
 import PokemonDetails from "./components/pokemonDetails/pokemonDetails";
+import NewPokemon from "./components/newPokemon/newPokemon";
 
 //styles
 import "./App.css";
-import NewPokemon from "./components/newPokemon/newPokemon";
 
 function App() {
   return (
