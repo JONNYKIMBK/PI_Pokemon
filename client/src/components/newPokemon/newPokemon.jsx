@@ -6,6 +6,7 @@ import { getById, getTypes, postNewPokemon } from "../../actions/actions";
 import PokemonDetails from "../pokemonDetails/pokemonDetails";
 
 import "./newPokemon.css";
+import { BACK } from "../../actions/actions";
 
 export default function NewPokemon() {
   const [newPokemon, setNewPokemon] = useState({
@@ -150,7 +151,7 @@ export default function NewPokemon() {
     } else if (!fail) {
       if (!patternUrl.test(newPokemon.img)) {
         axios
-          .post("http://localhost:3001/pokemons", {
+          .post(`${BACK}/pokemons`, {
             name: newPokemon.name,
             hp: newPokemon.hp,
             attack: newPokemon.attack,
@@ -167,7 +168,7 @@ export default function NewPokemon() {
           });
       } else {
         axios
-          .post("http://localhost:3001/pokemons", {
+          .post(`${BACK}/pokemons`, {
             name: newPokemon.name,
             hp: newPokemon.hp,
             attack: newPokemon.attack,

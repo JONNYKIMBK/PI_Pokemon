@@ -15,9 +15,11 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
 
 /////////
 
+export const BACK = "https://pipokemon-production.up.railway.app";
+
 export function getAllPokemons() {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/pokemons");
+    const response = await axios.get(`${BACK}/pokemons`);
 
     return dispatch({ type: GET_ALL_POKEMONS, payload: response.data });
   };
@@ -26,9 +28,7 @@ export function getAllPokemons() {
 export function searchPokemon(name) {
   return async function (dispatch) {
     try {
-      const response = await axios.get(
-        `http://localhost:3001/pokemons?name=${name}`
-      );
+      const response = await axios.get(`${BACK}/pokemons?name=${name}`);
       return dispatch({ type: SEARCH_POKEMON, payload: response.data });
     } catch (error) {
       return dispatch({
@@ -41,7 +41,7 @@ export function searchPokemon(name) {
 
 export function getTypes() {
   return async function (dispatch) {
-    const response = await axios.get("http://localhost:3001/types");
+    const response = await axios.get(`${BACK}/types`);
 
     return dispatch({ type: GET_ALL_TYPES, payload: response.data });
   };
@@ -49,7 +49,7 @@ export function getTypes() {
 
 export function getById(id) {
   return async function (dispatch) {
-    const response = await axios.get(`http://localhost:3001/pokemons/${id}`);
+    const response = await axios.get(`${BACK}/pokemons/${id}`);
 
     return dispatch({ type: GET_BY_ID, payload: response.data });
   };
