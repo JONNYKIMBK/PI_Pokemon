@@ -19,7 +19,7 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://pi-pokemon-7rvkev038-jonnykim.vercel.app/"
+    "https://pipokemon-production.up.railway.app"
   ); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
