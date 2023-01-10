@@ -8,13 +8,6 @@ require("./db.js");
 
 const server = express();
 
-//get pokemons
-const { getPokemons, postPokemons } = require("./controllers/pokemons");
-
-////////////////
-// get types
-const { getTypes } = require("./controllers/types");
-
 //////////////////
 
 server.name = "API";
@@ -44,25 +37,5 @@ server.use((err, req, res, next) => {
   console.error(err);
   res.status(status).send(message);
 });
-
-//get all pokemons
-server.get("/pokemons", getPokemons);
-
-/////////////////
-
-//get pokemons by id
-
-server.get("/pokemons/:id", getPokemons);
-
-/////////////////////////////
-
-//get all types
-server.get("/types", getTypes);
-
-///////////////////////
-
-//post new pokemons
-
-server.post("/pokemons", postPokemons);
 
 module.exports = server;
