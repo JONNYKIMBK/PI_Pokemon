@@ -75,10 +75,7 @@
   display: none;
 }
 
-.loading {
-  display: flex;
-  flex-direction: column;
-}
+
 
 @media only screen and (max-width: 600px) {
   .type1 img {
