@@ -197,7 +197,7 @@ export default function NewPokemon() {
     }
   }, [pokemons]);
 
-  if (pokemons.selectPokemon.id) {
+  if (!typeof pokemons.selectPokemon.id === "number") {
     return (
       <div>
         <div className="header">

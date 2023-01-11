@@ -49,7 +49,7 @@ export default function PokemonDetails() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (Object.entries(pokemons.selectPokemon).length === 0) {
+    if (Object.entries(pokemons.selectPokemon).length === 0 && idPokemon) {
       dispatch(getById(idPokemon));
     }
 
