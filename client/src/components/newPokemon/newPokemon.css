@@ -60,3 +60,17 @@ label {
 .imageBlock {
   display: none;
 }
+
+@media only screen and (max-width: 600px) {
+  .newContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: space-around;
+  }
+
+  .newImage {
+    margin-top: 5%;
+  }
+}

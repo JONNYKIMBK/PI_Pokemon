@@ -39,3 +39,21 @@
 .logo {
   width: 50%;
 }
+
+@media only screen and (max-width: 600px) {
+  .background {
+    background: url("https://i.pinimg.com/564x/b5/6b/1b/b56b1b76b9309ec4f03275172d5e1aed.jpg");
+  }
+
+  .landing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .landing img {
+    object-fit: contain;
+    width: 100%;
+  }
+}

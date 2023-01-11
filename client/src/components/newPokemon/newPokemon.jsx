@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { getById, getTypes, postNewPokemon } from "../../actions/actions";
 import PokemonDetails from "../pokemonDetails/pokemonDetails";
-
 import "./newPokemon.css";
-import { BACK } from "../../actions/actions";
+
+const BACK = process.env.REACT_APP_BACK;
 
 export default function NewPokemon() {
   const [newPokemon, setNewPokemon] = useState({

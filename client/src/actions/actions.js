@@ -15,7 +15,7 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
 
 /////////
 
-export const BACK = "https://pipokemon-production.up.railway.app";
+const BACK = process.env.REACT_APP_BACK;
 
 export function getAllPokemons() {
   return async function (dispatch) {

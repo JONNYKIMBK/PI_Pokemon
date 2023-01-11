@@ -86,3 +86,24 @@ ul {
 .typeNull {
   display: none;
 }
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading img {
+  object-fit: contain;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+  .loading img {
+    object-fit: contain;
+    width: 80%;
+  }
+}

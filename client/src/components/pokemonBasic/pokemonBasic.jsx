@@ -5,6 +5,8 @@ import { useSelector } from "react-redux";
 
 import "./pokemonBasic.css";
 
+import { imgType } from "../pokemonDetails/pokemonDetails";
+
 export default function PokemonBasic({ index }) {
   const [background, setBackground] = useState(false);
 
@@ -38,12 +40,25 @@ export default function PokemonBasic({ index }) {
           />
           <img src={pokemons.showPokemons[index].img} alt="" />
         </NavLink>
-        <p>
-          Type:{" "}
-          {pokemons.showPokemons[index].type2
-            ? `${pokemons.showPokemons[index].type1} - ${pokemons.showPokemons[index].type2} `
-            : pokemons.showPokemons[index].type1}
-        </p>
+        <div className="type">
+          <div
+            className={
+              pokemons.showPokemons[index].type1 ? "type1" : "typeNull"
+            }
+          >
+            <img src={imgType[pokemons.showPokemons[index].type1]} />
+            {pokemons.showPokemons[index].type1}
+          </div>
+
+          <div
+            className={
+              pokemons.showPokemons[index].type2 ? "type2" : "typeNull"
+            }
+          >
+            <img src={imgType[pokemons.showPokemons[index].type2]} />
+            {pokemons.showPokemons[index].type2}
+          </div>
+        </div>
       </div>
     );
   }
