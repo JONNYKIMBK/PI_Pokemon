@@ -1,0 +1,12 @@
+.social img {
+  width: 30px;
+}
+.social a {
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
+.social {
+  display: flex;
+  justify-content: flex-end;
+}
