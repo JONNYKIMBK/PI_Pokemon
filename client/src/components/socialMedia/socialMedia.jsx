@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./social.css";
+import "./socialMedia.css";
 
-export default function Social() {
+export default function SocialMedia() {
   return (
     <div className="social">
       <a href="https://www.linkedin.com/in/jonathan-kim-bk/" target="_blank">
