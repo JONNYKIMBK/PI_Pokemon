@@ -21,10 +21,10 @@ function App() {
 
       <Route path="/home">
         <NavBar />
-        <SocialMedia />
       </Route>
 
       <Route exact path="/home">
+        <SocialMedia />
         <Home />
       </Route>
 
