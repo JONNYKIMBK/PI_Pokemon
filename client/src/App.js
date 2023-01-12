@@ -8,7 +8,6 @@ import NavBar from "./components/NavBar/navBar";
 import PokemonDetails from "./components/pokemonDetails/pokemonDetails";
 import NewPokemon from "./components/newPokemon/newPokemon";
 
-import SocialMedia from "./components/socialMedia/socialMedia";
 //styles
 import "./App.css";
 
@@ -24,7 +23,6 @@ function App() {
       </Route>
 
       <Route exact path="/home">
-        {/* <SocialMedia /> */}
         <Home />
       </Route>
 
