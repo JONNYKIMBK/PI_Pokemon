@@ -24,7 +24,7 @@ function App() {
       </Route>
 
       <Route exact path="/home">
-        <SocialMedia />
+        {/* <SocialMedia /> */}
         <Home />
       </Route>
 
