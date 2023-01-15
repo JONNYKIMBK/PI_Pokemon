@@ -23,3 +23,10 @@
   border: solid black;
   font-size: large;
 }
+
+@media only screen and (max-width: 600px) {
+  .pagination {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
