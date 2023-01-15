@@ -22,7 +22,7 @@ export default function PokemonBasic({ index }) {
     return <div>no se encontro</div>;
   }
 
-  if (pokemons.showPokemons.length > 0) {
+  if (pokemons.showPokemons.length > 0 && pokemons.showPokemons[0].id) {
     return (
       <div
         className={background ? "pokemonbasic2" : "pokemonbasic"}

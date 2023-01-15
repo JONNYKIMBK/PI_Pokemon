@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllPokemons, filterOrder, changePage } from "../../actions/actions";
+import {
+  getAllPokemons,
+  filterOrder,
+  changePage,
+  clear,
+} from "../../actions/actions";
 
 import "./filter.css";
 
@@ -34,6 +39,7 @@ export default function Filter() {
     setOrder("");
     setType("");
     setOrigin("");
+    dispatch(clear());
     dispatch(changePage(1));
 
     dispatch(getAllPokemons());
