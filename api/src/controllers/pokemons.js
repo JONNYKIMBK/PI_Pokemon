@@ -11,7 +11,7 @@ let pokemons = [];
 
 const promisePokemons = [];
 
-for (let i = 1; i <= 100; i++) {
+for (let i = 1; i <= 60; i++) {
   promisePokemons.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
 }
 
