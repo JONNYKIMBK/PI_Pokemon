@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
         ...state,
         allPokemons: state.allPokemons.concat(action.payload),
         pokemons: state.pokemons.concat(action.payload),
-        showPokemons: action.payload.slice(0, 12),
+        // showPokemons: action.payload.slice(0, 12),
       };
 
     case SEARCH_POKEMON:
