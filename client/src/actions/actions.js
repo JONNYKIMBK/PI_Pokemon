@@ -13,9 +13,49 @@ export const GET_ALL_POKEMONS = "GET_ALL_POKEMONS",
   NEW_POKEMON = "NEW_POKEMON",
   CHANGE_PAGE = "CHANGE_PAGE";
 
+export const API_POKEMONS = "API_POKEMONS";
 /////////
 
 const BACK = process.env.REACT_APP_BACK;
+
+//solo deploy
+
+export function apiPokemons() {
+  return async function (dispatch) {
+    const promisePokemons = [];
+
+    for (let i = 1; i <= 60; i++) {
+      promisePokemons.push(`https://pokeapi.co/api/v2/pokemon/${i}`);
+    }
+
+    let pokemons = [];
+
+    await Promise.all(
+      promisePokemons.map((promise) => axios.get(promise))
+    ).then((response) => {
+      for (let i = 0; i < response.length; i++) {
+        let data = response[i].data;
+        pokemons.push({
+          id: data.id,
+          name: data.name,
+          hp: data.stats[0].base_stat,
+          attack: data.stats[1].base_stat,
+          defense: data.stats[2].base_stat,
+          speed: data.stats[5].base_stat,
+          img: data.sprites.other.dream_world.front_default,
+          type1: data.types[0].type.name,
+          type2: data.types[1] ? data.types[1].type.name : null,
+          height: data.height,
+          weight: data.weight,
+        });
+      }
+    });
+
+    return dispatch({ type: API_POKEMONS, payload: pokemons });
+  };
+}
+
+////////////////////
 
 export function getAllPokemons() {
   return async function (dispatch) {
@@ -27,9 +67,34 @@ export function getAllPokemons() {
 
 export function searchPokemon(name) {
   return async function (dispatch) {
+    name = name.toLowerCase();
     try {
-      const response = await axios.get(`${BACK}/pokemons?name=${name}`);
-      return dispatch({ type: SEARCH_POKEMON, payload: response.data });
+      const response2 = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${name}`
+      );
+
+      let data = response2.data;
+
+      data = {
+        id: data.id,
+        name: data.name,
+        hp: data.stats[0].base_stat,
+        attack: data.stats[1].base_stat,
+        defense: data.stats[2].base_stat,
+        speed: data.stats[5].base_stat,
+        img: data.sprites.other.dream_world.front_default,
+        type1: data.types[0].type.name,
+        type2: data.types[1] ? data.types[1].type.name : null,
+        height: data.height,
+        weight: data.weight,
+      };
+
+      if (data.id) {
+        return dispatch({ type: SEARCH_POKEMON, payload: data });
+      } else {
+        const response = await axios.get(`${BACK}/pokemons?name=${name}`);
+        return dispatch({ type: SEARCH_POKEMON, payload: response.data });
+      }
     } catch (error) {
       return dispatch({
         type: SEARCH_POKEMON,
@@ -49,9 +114,32 @@ export function getTypes() {
 
 export function getById(id) {
   return async function (dispatch) {
-    const response = await axios.get(`${BACK}/pokemons/${id}`);
+    if (id < 1000) {
+      const response = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${id}`
+      );
 
-    return dispatch({ type: GET_BY_ID, payload: response.data });
+      let data = response.data;
+
+      data = {
+        id: data.id,
+        name: data.name,
+        hp: data.stats[0].base_stat,
+        attack: data.stats[1].base_stat,
+        defense: data.stats[2].base_stat,
+        speed: data.stats[5].base_stat,
+        img: data.sprites.other.dream_world.front_default,
+        type1: data.types[0].type.name,
+        type2: data.types[1] ? data.types[1].type.name : null,
+        height: data.height,
+        weight: data.weight,
+      };
+      return dispatch({ type: GET_BY_ID, payload: data });
+    } else {
+      const response = await axios.get(`${BACK}/pokemons/${id}`);
+
+      return dispatch({ type: GET_BY_ID, payload: response.data });
+    }
   };
 }
 

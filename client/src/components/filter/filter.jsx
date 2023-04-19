@@ -5,6 +5,7 @@ import {
   filterOrder,
   changePage,
   clear,
+  apiPokemons,
 } from "../../actions/actions";
 
 import "./filter.css";
@@ -40,9 +41,12 @@ export default function Filter() {
     setType("");
     setOrigin("");
     dispatch(clear());
+    dispatch(getAllPokemons());
     dispatch(changePage(1));
 
-    dispatch(getAllPokemons());
+    //API pokemons (deploy)
+    dispatch(apiPokemons());
+    ///////////////////////////////////////
   };
 
   return (

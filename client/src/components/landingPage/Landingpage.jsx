@@ -3,18 +3,25 @@ import "./Landingpage.css";
 import { useDispatch, useSelector } from "react-redux";
 
 import { NavLink } from "react-router-dom";
-import { getAllPokemons, getTypes } from "../../actions/actions";
+import { getAllPokemons, getTypes, apiPokemons } from "../../actions/actions";
 
 export default function Landingpage() {
   const [start, setStart] = useState(false);
+  const [get, setGet] = useState(false);
 
   const pokemons = useSelector((state) => state);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (pokemons.allPokemons.length < 40) {
-      dispatch(getAllPokemons());
-      dispatch(getTypes());
+    if (get === false) {
+      setGet(true);
+      if (pokemons.allPokemons.length < 40) {
+        dispatch(getAllPokemons());
+        dispatch(getTypes());
+        //API pokemons (deploy)
+        dispatch(apiPokemons());
+        ///////////////////////////////////////
+      }
     }
   }, [pokemons]);
 

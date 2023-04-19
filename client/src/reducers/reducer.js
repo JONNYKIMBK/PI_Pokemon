@@ -10,6 +10,7 @@ import {
   PAGINATION,
   NEW_POKEMON,
   CHANGE_PAGE,
+  API_POKEMONS,
 } from "../actions/actions";
 
 //////////
@@ -30,11 +31,23 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    //API pokemons (deploy)
+
+    case API_POKEMONS:
+      return {
+        ...state,
+        allPokemons: action.payload.concat(state.allPokemons),
+        pokemons: action.payload.concat(state.pokemons),
+        showPokemons: action.payload.slice(0, 12),
+      };
+
+    ///////////////////////////////////
+
     case GET_ALL_POKEMONS:
       return {
         ...state,
-        allPokemons: action.payload,
-        pokemons: action.payload,
+        allPokemons: state.allPokemons.concat(action.payload),
+        pokemons: state.pokemons.concat(action.payload),
         showPokemons: action.payload.slice(0, 12),
       };
 
@@ -63,6 +76,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         selectPokemon: {},
         searchPokemon: {},
+        allPokemons: [],
+        pokemons: [],
       };
 
     case FILTER_ORDER:

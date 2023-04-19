@@ -4,7 +4,12 @@ import PokemonBasic from "../pokemonBasic/pokemonBasic";
 import Filter from "../filter/filter";
 
 import { useDispatch, useSelector } from "react-redux";
-import { clear, getAllPokemons, getTypes } from "../../actions/actions";
+import {
+  clear,
+  getAllPokemons,
+  getTypes,
+  apiPokemons,
+} from "../../actions/actions";
 
 import "./Home.css";
 import Pagination from "../pagination/pagination";
@@ -21,12 +26,19 @@ export default function Home() {
       setGet(true);
       if (pokemons.allPokemons.length < 1) {
         dispatch(getAllPokemons());
+        //API pokemons (deploy)
+        dispatch(apiPokemons());
+        ///////////////////////////////////////
         dispatch(getTypes());
       }
 
       if (pokemons.selectPokemon.id) {
         dispatch(clear());
         dispatch(getAllPokemons());
+
+        //API pokemons (deploy)
+        dispatch(apiPokemons());
+        ///////////////////////////////////////
       }
       if (pokemons.searchPokemon.id) {
         dispatch(clear());

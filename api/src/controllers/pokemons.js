@@ -20,31 +20,31 @@ const getPokemons = async (req, res) => {
 
   //pokemons de api
 
-  await Promise.all(promisePokemons.map((promise) => axios.get(promise)))
-    .then((response) => {
-      for (let i = 0; i < response.length; i++) {
-        let data = response[i].data;
-        pokemons.push({
-          id: data.id,
-          name: data.name,
-          hp: data.stats[0].base_stat,
-          attack: data.stats[1].base_stat,
-          defense: data.stats[2].base_stat,
-          speed: data.stats[5].base_stat,
-          img: data.sprites.other.dream_world.front_default,
-          type1: data.types[0].type.name,
-          type2: data.types[1] ? data.types[1].type.name : null,
-          height: data.height,
-          weight: data.weight,
-        });
-      }
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).json({
-        error: "No se pudo conectar a la api",
-      });
-    });
+  // await Promise.all(promisePokemons.map((promise) => axios.get(promise)))
+  //   .then((response) => {
+  //     for (let i = 0; i < response.length; i++) {
+  //       let data = response[i].data;
+  //       pokemons.push({
+  //         id: data.id,
+  //         name: data.name,
+  //         hp: data.stats[0].base_stat,
+  //         attack: data.stats[1].base_stat,
+  //         defense: data.stats[2].base_stat,
+  //         speed: data.stats[5].base_stat,
+  //         img: data.sprites.other.dream_world.front_default,
+  //         type1: data.types[0].type.name,
+  //         type2: data.types[1] ? data.types[1].type.name : null,
+  //         height: data.height,
+  //         weight: data.weight,
+  //       });
+  //     }
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //     res.status(400).json({
+  //       error: "No se pudo conectar a la api",
+  //     });
+  //   });
 
   /////////////////////////////////////////////
 
